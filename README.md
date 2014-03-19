@@ -4,11 +4,15 @@ Andrew Cox, c11401898
 lit-anchorage-6910.herokuapp.com
 
 
+
+
 This is a RESTful Calendar system  implemented in Flask.
 
 This is an assignment for a college module called Cloud Computing in DIT.
 
 This is only for educational purposes.
+
+
 
 
 Documentation:
@@ -53,7 +57,7 @@ CalendarCreate:
         "Values": []
       }
     ]
-  }
+
 
 This shows the simple commands required to create calenders.
   
@@ -96,7 +100,7 @@ CreateEntries:
         ]
       } 
     ]
-  }
+
 
 This shows the creation of two tasks into one Calendar.
   
@@ -135,7 +139,7 @@ CreateEntryVal:
         "title": "Home and Away"
       }
     ]
-  }
+  
 
 This shows entry of Home and Away into the 2 task only.
   
@@ -160,7 +164,7 @@ SelectEntry:
     "repeats": 0, 
     "start_time": "", 
     "title": ""
-  }
+  
   This shows the selection of one set of entries even though there are more.
   
 DeleteCalendar:
@@ -185,7 +189,7 @@ DeleteCalendar:
         "Values": []
       }
     ]
-  }
+  
   This shows the creation of two calendars and the deletion of one of them.
   
 DeleteEntry:
@@ -227,5 +231,5 @@ DeleteEntry:
         ]
       }
     ]
-  }
+  
   This shows the creation of two entries in a calender and the deletion of one.
