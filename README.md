@@ -33,6 +33,7 @@ Test Exaples:
   
 CalendarCreate:
   Input:
+  
     curl -X POST  http://localhost:5000/calender/1
 
     curl -X POST  http://localhost:5000/calender/2
@@ -40,6 +41,7 @@ CalendarCreate:
     curl -i GET  http://localhost:5000/calender
   
   Output:
+  
     {
       "calender_list": [
       {
@@ -57,6 +59,7 @@ This shows the simple commands required to create calenders.
   
 CreateEntries:
   Input:
+  
     curl -X POST http://localhost:5000/calender/1
 
     curl -X POST -d '{}'  http://localhost:5000/calender/1/task/1
@@ -66,6 +69,7 @@ CreateEntries:
     curl -i GET  http://localhost:5000/calender/1
 
   Output:
+  
     {
       "calender_list": [
       {
@@ -98,6 +102,7 @@ This shows the creation of two tasks into one Calendar.
   
 CreateEntryVal:
   Input:
+  
     curl -X POST http://localhost:5000/calender/1
 
     curl -X POST -d '{}'  http://localhost:5000/calender/1/task/1
@@ -107,6 +112,7 @@ CreateEntryVal:
     curl -i GET  http://localhost:5000/calender/1
     
   Output:
+  
     {
     "CalID": 1, 
     "Values": [
@@ -135,6 +141,7 @@ This shows entry of Home and Away into the 2 task only.
   
 SelectEntry:
   Input:
+  
     curl -X POST http://localhost:5000/calender/1
 
     curl -X POST -d '{}'  http://localhost:5000/calender/1/task/1
@@ -144,6 +151,7 @@ SelectEntry:
     curl -i GET  http://localhost:5000/calender/1/task/2
 
   Output:
+  
     {
     "TaskID": 2, 
     "description": "", 
@@ -157,6 +165,7 @@ SelectEntry:
   
 DeleteCalendar:
   Input:
+  
     curl -X POST  http://localhost:5000/calender/1
 
     curl -X POST  http://localhost:5000/calender/2
@@ -168,6 +177,7 @@ DeleteCalendar:
     curl -i GET  http://localhost:5000/calender
 
   Output:
+  
     {
     "calender_list": [
       {
@@ -180,6 +190,7 @@ DeleteCalendar:
   
 DeleteEntry:
   Input:
+  
     curl -X POST  http://localhost:5000/calender/1
 
     curl -X POST -d '{}'  http://localhost:5000/calender/1/task/1
@@ -194,6 +205,7 @@ DeleteEntry:
 
     
   Output:
+  
     {
     "calender_list": [
       {
