@@ -2,21 +2,30 @@
 from flask import Flask, jsonify, request, abort
 
 app = Flask(__name__)
-app.debug = True;
+app.debug = True
 
 calender_list = []
 
 @app.route('/calender', methods = ['GET'])
-def get_calender():
+def get_calender_list():
 	return jsonify( { 'calender_list': calender_list } )
 
 
 @app.route('/calender/<int:Calid>', methods = ['GET'])
-def get_Task(Calid):
+def get_calender(Calid):
         for element in calender_list:
                 if element['CalID'] == Calid:
                         return jsonify(element), 200
         return("not Found"), 404
+
+@app.route('/calender/<int:Calid>/task/<int:Taskid>', methods = ['GET'])
+def get_task(Calid, Taskid):
+	for element in calender_list:
+		if element['CalID'] == Calid:
+			for ele in element['Values']:
+				if ele['TaskID'] == Taskid:
+					return jsonify(ele), 200
+	return "Doesn't exist", 404
 
 @app.route('/calender/<int:Calid>', methods = ['POST'])
 def create_calender(Calid):
@@ -57,3 +66,14 @@ def delete_calender(Calid):
 		if element['CalID'] == Calid:
 			calender_list.remove(element)
 			return "Success\n", 202
+	return "Doesn't Exist", 404
+
+@app.route('/calender/<int:Calid>/task/<int:Taskid>', methods = ['DELETE'])
+def delete_task(Calid, Taskid):
+	for element in calender_list:
+		if element['CalID'] == Calid:
+			for ele in element['Values']:
+				if ele['TaskID'] == Taskid:
+					element['Values'].remove(ele)
+					return "Delete SuccessFul", 201
+	return "Does no exist", 404
