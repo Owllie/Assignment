@@ -16,7 +16,7 @@ def get_calender(Calid):
         for element in calender_list:
                 if element['CalID'] == Calid:
                         return jsonify(element), 200
-        return("not Found"), 404
+        return("not Found\n"), 404
 
 @app.route('/calender/<int:Calid>/task/<int:Taskid>', methods = ['GET'])
 def get_task(Calid, Taskid):
@@ -25,7 +25,7 @@ def get_task(Calid, Taskid):
 			for ele in element['Values']:
 				if ele['TaskID'] == Taskid:
 					return jsonify(ele), 200
-	return "Doesn't exist", 404
+	return "Doesn't exist\n", 404
 
 @app.route('/calender/<int:Calid>', methods = ['POST'])
 def create_calender(Calid):
@@ -54,10 +54,10 @@ def create_task(Calid, Taskid):
                 if element['CalID'] == Calid:
                         for ele in element['Values']:
                                 if ele['TaskID'] == Taskid:
-                                        return "Already Exists", 409
+                                        return "Already Exists\n", 409
                         
                         element['Values'].append(task)
-                        return("Addition Successful"), 201
+                        return("Addition Successful\n"), 201
 			
 
 @app.route('/calender/<int:Calid>', methods = ['DELETE'])
@@ -75,5 +75,5 @@ def delete_task(Calid, Taskid):
 			for ele in element['Values']:
 				if ele['TaskID'] == Taskid:
 					element['Values'].remove(ele)
-					return "Delete SuccessFul", 201
-	return "Does no exist", 404
+					return "Delete SuccessFul\n", 201
+	return "Does not exist\n", 404
