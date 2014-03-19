@@ -22,14 +22,33 @@ The API take each request and return a json status message. There are error fiel
 There are four methods in the API:
 GET, POST, DELETE and PUT.
 
-Each of these will have an example input and output further down.
+These will have an example input and output further down.
 
 Parameters used by me:
   Calid: CalenderID for calender identity
   Taskid: for task identity
   Values: Entries Dictionaries' name
 
+GET:
+  GET is used to get get information from the server. Within this program, it returns calendar and there entries in the them.
+  
+  curl -i GET  http://localhost:5000/calender
+  
+  The given example returns all the calendars and there entries all together.
 
+POST:
+  POST is used to enter data calendars and there entries as well as creating calendars. They require no input if not wanted as they contain default values.
+  
+  curl -X POST -d '{"title":"Home and Away"}'  http://localhost:5000/calender/1/task/2
+
+  The given example adds a task with an ID of 2 to the first calendar with the title Home and Away.
+  
+Delete:
+  DELETE is used to remove entris and calendars. In this program if you remove an entry, you remove all the entry details.
+  
+  curl -X DELETE  http://localhost:5000/calender/1/task/1
+    
+  This exampl shows removal of the first entry from the first calendar.
 
 Test Exaples:
   These tests are all in the repository.
